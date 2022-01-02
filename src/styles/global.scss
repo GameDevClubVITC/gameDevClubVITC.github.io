@@ -1,6 +1,4 @@
-/*
-  CSS Global Reset
-*/
+/* CSS Global Reset */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -12,6 +10,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: hsl(221, 78%, 7%);
 }
 input, button, textarea, select {
     font: inherit;
@@ -21,4 +20,52 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 #root, #__next {
     isolation: isolate;
+}
+
+.section {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(180deg, hsl(221, 78%, 7%) 25%, #000000 100%);
+}
+/* Navbar */
+.navbar-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 7rem;
+    padding: 0rem min(5rem, 8vw);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    will-change: height;
+
+    .navbar-blur {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        backdrop-filter: blur(20px) saturate(120%);
+        background: hsla(0, 0%, 0%, 0.2);
+        border-bottom: 0.25px solid hsla(0, 0%, 50%, 0.15);
+    }
+
+    .logo {
+        height: 4.4rem;
+    }
+
+    .navbar-links {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+
+        a {
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+    }
 }

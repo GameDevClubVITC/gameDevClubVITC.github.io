@@ -1,7 +1,6 @@
 .homeSection {
     width: 100%;
     height: 100vh;
-    background: hsl(221, 78%, 7%);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -12,25 +11,25 @@
     h1 {
         position: absolute;
         color: #FFFFFF;
-        font-size: 12rem;
-        z-index: 5;
+        font-size: min(25vw, 12rem);
         opacity: 0;
         will-change: opacity, transform;
     }
 
     h2 {
-        // position: absolute;
         color: #FFFFFF;
         font-size: 4rem;
         line-height: 1;
-        z-index: 5;
-        // opacity: 0;
+        opacity: 0;
         will-change: opacity, transform;
+        animation: heading-intro-X 0.5s 7.5s forwards;
     }
 
     h3 {
         color: #FFFFFF;
         font-size: 2rem;
+        opacity: 0;
+        animation: heading-intro-X 0.5s 8s forwards;
     }
 
     .t1 {
@@ -47,6 +46,7 @@
         pointer-events: none;
         position: absolute;
         top: 0%;
+        z-index: -5;
 
         .line1, .line2 {
             position: absolute;
@@ -75,6 +75,7 @@
     }
 
     .animSq {
+        z-index: -5;
         pointer-events: none;
         position: absolute;
         height: 32rem;
@@ -98,6 +99,7 @@
     }
 
     .animCir {
+        z-index: -5;
         pointer-events: none;
         position: absolute;
         height: 40rem;
@@ -118,6 +120,49 @@
         opacity: 0;
         will-change: opacity, transform;
         animation: cir-intro 1s 5s forwards, cir-outro 1s 7s forwards;
+    }
+
+    .tri {
+        z-index: -5;
+        pointer-events: none;
+        position: absolute;
+        right: -4rem;
+        bottom: 1.5rem;
+        font-size: 170px;
+        color: #F5E1E5;
+        text-shadow: 0 0 10px #F9B8BF, 
+        0 0 20px #F9B8BF, 
+        0 0 40px #F21A33,
+        0 0 70px #F21A33, 
+        0 0 80px #F21A33;
+        transform: rotate(90deg);
+        opacity: 0;
+        animation: heading-intro-X 0.5s 8s forwards;
+    }
+
+    .cir {
+        z-index: -5;
+        pointer-events: none;
+        position: absolute;
+        top: -15rem;
+        left: -18rem;
+        height: 30rem;
+        aspect-ratio: 1;
+        background: transparent;
+        border: 10px solid #B0FEFE;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #B0FEFE, 
+        0 0 20px #B0FEFE, 
+        0 0 40px #3DB9BB,
+        0 0 70px #3DB9BB, 
+        0 0 80px #3DB9BB, 
+        inset 0 0 10px #B0FEFE, 
+        inset 0 0 20px #B0FEFE, 
+        inset 0 0 40px #3DB9BB,
+        inset 0 0 70px #3DB9BB, 
+        inset 0 0 80px #3DB9BB;
+        opacity: 0;
+        animation: heading-intro-X 0.5s 8s forwards;
     }
 }
 
@@ -203,6 +248,7 @@
         transform: translateY(5rem);
         opacity: 0;
         // filter: blur(50px);
+        // removed cause animating filter causes bad performance : (
     }
     100% {
         transform: translateY(0);
@@ -220,5 +266,37 @@
         transform: translateY(0);
         opacity: 1;
         // filter: none;
+    }
+}
+@keyframes heading-intro-X {
+    0% {
+        transform: translateX(-5rem);
+        opacity: 0;
+        // filter: blur(50px);
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+        // filter: none;
+    }
+}
+@keyframes heading-outro-X {
+    100% {
+        transform: translateX(5rem);
+        opacity: 0;
+        // filter: blur(50px);
+    }
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+        // filter: none;
+    }
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

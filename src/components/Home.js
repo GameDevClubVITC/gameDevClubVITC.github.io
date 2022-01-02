@@ -19,6 +19,11 @@ export default function Home() {
 
             <div className={styles.animCir}></div>
 
+            {/* After Animation */}
+
+            <div className={styles.tri}>△</div>
+            <div className={styles.cir}></div>
+
             <h2>GAME<br/>DEV<br/>CLUB</h2>
             <h3>VIT Chennai</h3>
             
