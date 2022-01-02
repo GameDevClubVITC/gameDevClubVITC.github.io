@@ -1,11 +1,12 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import logo from '../images/icon.png'
 
 export default function Navbar() {
-    var navbarBlur = {
+    let navbarBlur = {
         opacity: '1'
-    };
+    }
+
     let navbarStyle = {
         height: '5rem'
     }
@@ -19,8 +20,12 @@ export default function Navbar() {
             setStyle(false);
         }
     };
-
-    window.addEventListener('scroll', handleScroll);
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    });
 
     return (
         <div className="navbar-container" style={useStyle ? navbarStyle : null}> 
